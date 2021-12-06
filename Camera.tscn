@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Camera.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Sprites/YOU DIED.png" type="Texture" id=2]
+
+[node name="Camera" type="Camera2D"]
+drag_margin_h_enabled = true
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="YOU_DIED" type="Sprite" parent="."]
+visible = false
+position = Vector2( -0.000869751, -0.00415707 )
+scale = Vector2( 3.14756, 3.2093 )
+texture = ExtResource( 2 )
