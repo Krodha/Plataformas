@@ -11,7 +11,7 @@ config_version=4
 [application]
 
 config/name="PLATAFORMAS"
-config/icon="res://icon.png"
+config/icon="res://Assets/Sprites/Calavera Plataformas.png"
 
 [display]
 

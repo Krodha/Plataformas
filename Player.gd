@@ -17,7 +17,6 @@ func _process(delta):
 func _physics_process(delta):
 	
 	movimiento.y += GRAVEDAD * 100 * delta
-	
 	if $RayCast2D.is_colliding():
 		saltos = 0
 		can_jump = true
@@ -49,7 +48,6 @@ func _movement():
 func _is_on_floor(delta):
 	
 	position += movimiento * delta
-	
 	movimiento = move_and_slide(movimiento, SUELO)
 	
 
@@ -57,11 +55,12 @@ func _is_on_floor(delta):
 
 
 func _on_Player_vs_enemy_collision(body):
+	
 	if body.is_in_group("Enemy"):
 		emit_signal("perder")
-		
+	
 
 
 
-
-
+func _on_Nube_SaltoExtra():
+	saltos -=1
