@@ -20,13 +20,13 @@ __meta__ = {
 }
 velocidad = 1000
 
-[node name="BolaA" type="Sprite" parent="."]
+[node name="BolaR" type="Sprite" parent="."]
 position = Vector2( -95.3259, -43.0179 )
 scale = Vector2( 0.1, 0.1 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="BolaR" type="Sprite" parent="."]
+[node name="BolaA" type="Sprite" parent="."]
 visible = false
 position = Vector2( 0.749146, 10.8627 )
 scale = Vector2( 0.1, 0.1 )

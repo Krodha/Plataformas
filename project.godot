@@ -13,6 +13,10 @@ config_version=4
 config/name="PLATAFORMAS"
 config/icon="res://Assets/Sprites/Calavera Plataformas.png"
 
+[autoload]
+
+GLOBAL="*res://GLOBAL.gd"
+
 [display]
 
 window/size/width=1920

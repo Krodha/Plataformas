@@ -9,41 +9,33 @@
 script = ExtResource( 4 )
 
 [node name="Fondo" type="Sprite" parent="."]
-position = Vector2( -2.66968, 2.66968 )
+position = Vector2( 0.0030036, 0.21971 )
+scale = Vector2( 1, 1.0068 )
 texture = ExtResource( 1 )
 centered = false
 
-[node name="ButtonR" type="Button" parent="."]
-margin_left = 359.0
-margin_top = 367.0
-margin_right = 727.0
-margin_bottom = 635.0
+[node name="Azul" type="Button" parent="."]
+margin_top = 271.0
+margin_right = 1932.0
+margin_bottom = 1357.0
+rect_scale = Vector2( 0.5, 0.5 )
+icon = ExtResource( 2 )
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BolaR" type="Sprite" parent="."]
-position = Vector2( 291.84, 377.147 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 3 )
-centered = false
-
-[node name="ButtonA" type="Button" parent="."]
-margin_left = 1206.0
-margin_top = 378.0
-margin_right = 1564.0
-margin_bottom = 628.0
+[node name="Rojo" type="Button" parent="."]
+margin_left = 955.0
+margin_top = 271.0
+margin_right = 2887.0
+margin_bottom = 1357.0
+rect_scale = Vector2( 0.5, 0.5 )
+icon = ExtResource( 3 )
 flat = true
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BolaA" type="Sprite" parent="."]
-position = Vector2( 1142.62, 377.147 )
-scale = Vector2( 0.25, 0.25 )
-texture = ExtResource( 2 )
-centered = false
-
-[connection signal="pressed" from="ButtonR" to="." method="_on_ButtonR_pressed"]
-[connection signal="pressed" from="ButtonA" to="." method="_on_ButtonA_pressed"]
+[connection signal="pressed" from="Azul" to="." method="_on_Azul_pressed"]
+[connection signal="pressed" from="Rojo" to="." method="_on_Rojo_pressed"]

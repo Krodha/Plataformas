@@ -9,6 +9,12 @@ var movimiento : Vector2
 export (int) var velocidad 
 signal perder
 
+func _ready():
+	if GLOBAL.player_skin == 2:
+		$BolaA.visible = true
+
+
+
 func _process(delta):
 	_is_on_floor(delta)
 	_movement()
@@ -46,20 +52,13 @@ func _movement():
 
 
 func _is_on_floor(delta):
-	
 	position += movimiento * delta
 	movimiento = move_and_slide(movimiento, SUELO)
-	
-
-
 
 
 func _on_Player_vs_enemy_collision(body):
-	
 	if body.is_in_group("Enemy"):
 		emit_signal("perder")
-	
-
 
 
 func _on_Nube_SaltoExtra():

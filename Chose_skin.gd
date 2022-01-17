@@ -1,15 +1,11 @@
 extends Node
 
-signal ButtonR
-signal ButtonA
-
-func _on_ButtonR_pressed():
-	get_tree().emit_signal("ButtonR")
+func _on_Rojo_pressed():
+	GLOBAL.player_skin = 1
+	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().call_deferred("change_scene", "res://Mapa.tscn")
-	
 
-
-func _on_ButtonA_pressed():
-	get_tree().emit_signal("ButtonA")
+func _on_Azul_pressed():
+	GLOBAL.player_skin = 2
+	yield(get_tree().create_timer(1.0), "timeout")
 	get_tree().call_deferred("change_scene", "res://Mapa.tscn")
-	
