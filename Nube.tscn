@@ -4,7 +4,7 @@
 [ext_resource path="res://Nube.gd" type="Script" id=2]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 152.809
+radius = 404.821
 
 [node name="Nube" type="Area2D" groups=[
 "SaltoExtra",

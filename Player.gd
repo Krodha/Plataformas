@@ -11,8 +11,9 @@ signal perder
 
 func _ready():
 	if GLOBAL.player_skin == 2:
-		$BolaA.visible = true
-
+		$AnimatedSprite.play("AZUL")
+	if GLOBAL.player_skin == 1:
+		$AnimatedSprite.play("ROJO")
 
 
 func _process(delta):
@@ -27,7 +28,7 @@ func _physics_process(delta):
 		saltos = 0
 		can_jump = true
 	
-	if saltos == 1:
+	if saltos >= 1:
 		can_jump = false
 
 
