@@ -28,7 +28,7 @@ animations = [ {
 ]]
 position = Vector2( 0.0398656, 0.139772 )
 script = ExtResource( 2 )
-velocidad = 1000
+velocidad = 400
 
 [node name="PlayerColision" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0265198, -0.0498595 )

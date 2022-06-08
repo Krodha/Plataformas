@@ -2,10 +2,6 @@ extends Node
 
 
 
-func _process(delta):
-	pass
-
-
 func _on_Player_perder():
 	$ResetTimer.start()
 
