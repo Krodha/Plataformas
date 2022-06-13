@@ -19,12 +19,24 @@ func _is_on_floor(delta):
 	movimiento = move_and_slide(movimiento, SUELO)
 	movimiento.y += GRAVEDAD
 
+func get_axis() -> Vector2:
+	var axis : Vector2
+	var dir : Vector2
+	axis.x = player.global_position.x - shrek.global_position.x
+	if axis.x <= 0:
+		dir.x = -1
+	elif axis.x >=0:
+		dir.x = 1
+	else:
+		dir.x = 0
+	return dir
+
 func movimiento_ctrl():
-	if can_move:
-		if player.global_position.x >= shrek.global_position.x:
-			movimiento.x += 5
-		else:
-			 movimiento.x -= 5
+	if get_axis().x != 0:
+		movimiento.x = get_axis().x * velocidad
+	else:
+		movimiento.x = 0
+
 
 func random(min_num, max_num):
 	rng.randomize()
