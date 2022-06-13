@@ -82,15 +82,15 @@ position = Vector2( 971.578, 772.177 )
 [node name="Nube" parent="." instance=ExtResource( 7 )]
 position = Vector2( 3948.17, 549.414 )
 
+[node name="HUD" parent="." instance=ExtResource( 4 )]
+
+[node name="Shrek" parent="." instance=ExtResource( 8 )]
+position = Vector2( 3124.62, 835.726 )
+
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 position = Vector2( 960, 544 )
 current = true
 drag_margin_h_enabled = false
-
-[node name="HUD" parent="." instance=ExtResource( 4 )]
-
-[node name="Shrek" parent="." instance=ExtResource( 8 )]
-position = Vector2( 1510.1, 734.818 )
 
 [connection signal="perder" from="Player" to="Camera" method="_on_Player_perder"]
 [connection signal="perder" from="Player" to="HUD" method="_on_Player_perder"]
