@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Assets/Sprites/Bola.png" type="Texture" id=1]
-[ext_resource path="res://Player.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Escenas/Player.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/Bola azul.png" type="Texture" id=3]
+[ext_resource path="res://Assets/Escenas/Bala.tscn" type="PackedScene" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 240.447
@@ -29,6 +30,7 @@ animations = [ {
 position = Vector2( 0.0398656, 0.139772 )
 script = ExtResource( 2 )
 velocidad = 400
+bala = ExtResource( 4 )
 
 [node name="PlayerColision" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0265198, -0.0498595 )
@@ -49,5 +51,7 @@ position = Vector2( 0.707108, 10.8621 )
 scale = Vector2( 0.1, 0.1 )
 frames = SubResource( 3 )
 animation = "AZUL"
+
+[node name="BalaPosition" type="Position2D" parent="."]
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Player_vs_enemy_collision"]

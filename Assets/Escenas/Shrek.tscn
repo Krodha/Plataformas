@@ -1,13 +1,13 @@
 [gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Assets/Sprites/shrek.png" type="Texture" id=1]
-[ext_resource path="res://Shrek.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Escenas/Shrek.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 52.6491, 156.46 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 1606.26
+radius = 874.82
 
 [node name="Shrek" type="KinematicBody2D" groups=[
 "Shrek",
@@ -31,6 +31,12 @@ autostart = true
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectar"]
 shape = SubResource( 2 )
 
+[node name="HitBox" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="HitBox"]
+polygon = PoolVector2Array( -46.6612, 166.439, -51.7307, -28.944, -141.629, 28.7409, -193.321, 45.2222, -54.7273, -73.8932, 0.710083, -146.561, 64.3882, -77.6389, 196.239, 47.4697, 149.792, 31.7375, 58.3949, -22.9507, 51.6127, 165.809, 25.4322, 166.585, 16.4423, 92.4189, -18.7679, 92.4189, -22.5137, 165.836 )
+
 [connection signal="timeout" from="TimerSaltos" to="." method="_on_TimerSaltos_timeout"]
 [connection signal="body_entered" from="AreaDetectar" to="." method="_on_AreaDetectar_body_entered"]
 [connection signal="body_exited" from="AreaDetectar" to="." method="_on_AreaDetectar_body_exited"]
+[connection signal="body_entered" from="HitBox" to="." method="_on_HitBox_body_entered"]

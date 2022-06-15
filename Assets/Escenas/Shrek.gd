@@ -32,11 +32,12 @@ func get_axis() -> Vector2:
 	return dir
 
 func movimiento_ctrl():
-	if get_axis().x != 0:
-		movimiento.x = get_axis().x * velocidad
-	else:
-		movimiento.x = 0
-
+	if can_move:
+		if get_axis().x != 0:
+			movimiento.x = get_axis().x * velocidad
+		else:
+			movimiento.x = 0
+		
 
 func random(min_num, max_num):
 	rng.randomize()
@@ -44,16 +45,20 @@ func random(min_num, max_num):
 	return random
 
 func _on_TimerSaltos_timeout():
-	movimiento.y -= JUMP_HEIGH
-	$TimerSaltos.wait_time = random(1,3)
-	$TimerSaltos.start()
-
+	if can_move:
+		movimiento.y -= JUMP_HEIGH
+		$TimerSaltos.wait_time = random(1,3)
+		$TimerSaltos.start()
 
 func _on_AreaDetectar_body_entered(body):
 	if body.is_in_group("Player"):
 		can_move = true
 
-
 func _on_AreaDetectar_body_exited(body):
 	if body.is_in_group("Player"):
 		can_move = false
+
+
+func _on_HitBox_body_entered(body):
+	if body.is_in_group("Proyectil"):
+		queue_free()

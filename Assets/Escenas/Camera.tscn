@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://Camera.gd" type="Script" id=1]
+[ext_resource path="res://Assets/Escenas/Camera.gd" type="Script" id=1]
 [ext_resource path="res://Assets/Sprites/YOU DIED.png" type="Texture" id=2]
 
 [node name="Camera" type="Camera2D"]
