@@ -3,9 +3,10 @@ extends KinematicBody2D
 export (int) var velocidad 
 export (bool) var can_move
 onready var player = get_tree().get_nodes_in_group("Player")[0]
-onready var shrek = get_tree().get_nodes_in_group("Shrek")[0]
+onready var shrek = get_tree().get_nodes_in_group("Enemy")[1]
 onready var movimiento : Vector2
 onready var rng : RandomNumberGenerator = RandomNumberGenerator.new()
+onready var vidas_shrek = 5
 const SUELO = Vector2(0,-1)
 const GRAVEDAD = 35
 const JUMP_HEIGH = 750
@@ -37,6 +38,8 @@ func movimiento_ctrl():
 			movimiento.x = get_axis().x * velocidad
 		else:
 			movimiento.x = 0
+		if vidas_shrek <= 0:
+			queue_free()
 		
 
 func random(min_num, max_num):
@@ -58,7 +61,7 @@ func _on_AreaDetectar_body_exited(body):
 	if body.is_in_group("Player"):
 		can_move = false
 
-
 func _on_HitBox_body_entered(body):
 	if body.is_in_group("Proyectil"):
-		queue_free()
+		vidas_shrek -= 1
+		$AnimationPlayer.play("Daño")

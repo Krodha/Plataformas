@@ -5,7 +5,7 @@
 [ext_resource path="res://Assets/Sprites/Bola azul.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Escenas/Bala.tscn" type="PackedScene" id=4]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="CircleShape2D" id=5]
 radius = 240.447
 
 [sub_resource type="CircleShape2D" id=2]
@@ -35,7 +35,7 @@ bala = ExtResource( 4 )
 [node name="PlayerColision" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0265198, -0.0498595 )
 scale = Vector2( 0.1, 0.1 )
-shape = SubResource( 1 )
+shape = SubResource( 5 )
 
 [node name="Area2D" type="Area2D" parent="."]
 

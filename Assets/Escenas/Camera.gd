@@ -10,8 +10,7 @@ func _ready():
 func _process(delta):
 	if player_vivo:
 		global_position = player.global_position
-		global_position.x = clamp( 960,position.x, 3072) #Amaño chapuzero para limitar el mivimiento de la cámara como en Terraria
-	var camara_pos 
+		var camara_pos 
 	$YOU_DIED.global_position = get_camera_position()
 func _on_Player_perder():
 	$YOU_DIED.visible = true
