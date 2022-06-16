@@ -89,9 +89,7 @@ position = Vector2( 3124.62, 835.726 )
 can_move = false
 
 [node name="Camera" parent="." instance=ExtResource( 3 )]
-position = Vector2( 960, 544 )
 current = true
-drag_margin_h_enabled = false
 
 [connection signal="perder" from="Player" to="Camera" method="_on_Player_perder"]
 [connection signal="perder" from="Player" to="HUD" method="_on_Player_perder"]
