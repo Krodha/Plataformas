@@ -1,11 +1,11 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Assets/Sprites/Bola.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Escenas/Player.gd" type="Script" id=2]
 [ext_resource path="res://Assets/Sprites/Bola azul.png" type="Texture" id=3]
 [ext_resource path="res://Assets/Escenas/Bala.tscn" type="PackedScene" id=4]
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=1]
 radius = 240.447
 
 [sub_resource type="CircleShape2D" id=2]
@@ -13,21 +13,24 @@ radius = 25.0243
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "ROJO",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "AZUL",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "ROJO",
+"speed": 5.0
 } ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 58.2945, 105.98 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
-position = Vector2( 0.0398656, 0.139772 )
+position = Vector2( -1.96013, 0.139772 )
 script = ExtResource( 2 )
 velocidad = 400
 bala = ExtResource( 4 )
@@ -35,7 +38,7 @@ bala = ExtResource( 4 )
 [node name="PlayerColision" type="CollisionShape2D" parent="."]
 position = Vector2( -0.0265198, -0.0498595 )
 scale = Vector2( 0.1, 0.1 )
-shape = SubResource( 5 )
+shape = SubResource( 1 )
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -53,5 +56,17 @@ frames = SubResource( 3 )
 animation = "AZUL"
 
 [node name="BalaPosition" type="Position2D" parent="."]
+
+[node name="HurtBox" type="Position2D" parent="."]
+
+[node name="Area2D" type="Area2D" parent="HurtBox" groups=[
+"PlayerhurtBox",
+]]
+position = Vector2( 60, -30 )
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox/Area2D"]
+shape = SubResource( 4 )
+disabled = true
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_Player_vs_enemy_collision"]
