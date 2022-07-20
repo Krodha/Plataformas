@@ -69,5 +69,5 @@ func _on_HitBox_body_entered(body):
 
 func _on_HitBox_area_entered(area):
 	if area.is_in_group("PlayerhurtBox"):
-		vidas_shrek -=2
+		vidas_shrek -=20
 		$AnimationPlayer.play("Daño")

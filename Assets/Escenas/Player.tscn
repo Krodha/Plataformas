@@ -13,19 +13,19 @@ radius = 25.0243
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 3 ) ],
-"loop": true,
-"name": "AZUL",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 1 ) ],
 "loop": true,
 "name": "ROJO",
 "speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "AZUL",
+"speed": 5.0
 } ]
 
 [sub_resource type="RectangleShape2D" id=4]
-extents = Vector2( 58.2945, 105.98 )
+extents = Vector2( 287.629, 259.938 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -66,6 +66,7 @@ position = Vector2( 60, -30 )
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox/Area2D"]
+position = Vector2( 227.139, -1.18921 )
 shape = SubResource( 4 )
 disabled = true
 
