@@ -3,11 +3,14 @@ extends KinematicBody2D
 const SUELO = Vector2(0,-1)
 const JUMP_HEIGH = 750
 const GRAVEDAD = 20
+onready var vida_max : int = 100
+onready var vida_actual : int = 100
 onready var saltos : int
 onready var can_move : bool = true
 onready var can_jump : bool = true
 onready var arma : int = 2
 onready var bala_velocidad = 2000
+onready var barravida = get_tree().get_nodes_in_group("HUD")[0].get_node("PlayerVida")
 var movimiento : Vector2
 export (int) var velocidad 
 export (PackedScene) var bala
@@ -37,6 +40,11 @@ func _physics_process(delta):
 	
 	if saltos >= 1:
 		can_jump = false
+	
+	if vida_actual <= 0:
+		perder()
+	
+	barravida.value = vida_actual * barravida.max_value / vida_max
 	
 	$BalaPosition.look_at(get_global_mouse_position())
 
@@ -83,8 +91,7 @@ func _is_on_floor(delta):
 
 func _on_Player_vs_enemy_collision(body):
 	if body.is_in_group("Enemy"):
-		emit_signal("perder")
-		can_move = false
+		vida_actual -= 10
 
 
 func _on_Nube_SaltoExtra():
@@ -104,7 +111,7 @@ func atacar_melee():
 	yield(get_tree().create_timer(0.5),"timeout")
 	$HurtBox/Area2D/CollisionShape2D.disabled = true
 
-
-
-
+func perder():
+	emit_signal("perder")
+	can_move = false
 
