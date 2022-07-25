@@ -95,15 +95,15 @@ can_move = false
 ] instance=ExtResource( 9 )]
 position = Vector2( 3038.08, 2257.38 )
 
+[node name="CalaveraLanzadora" parent="." instance=ExtResource( 10 )]
+position = Vector2( 3720.61, 2265.34 )
+
 [node name="Camera" parent="." instance=ExtResource( 3 )]
 current = true
 
 [node name="HUD" parent="." groups=[
 "HUD",
 ] instance=ExtResource( 4 )]
-
-[node name="CalaveraLanzadora" parent="." instance=ExtResource( 10 )]
-position = Vector2( 3720.61, 2265.34 )
 
 [connection signal="perder" from="Player" to="Camera" method="_on_Player_perder"]
 [connection signal="SaltoExtra" from="Nube" to="Player" method="_on_Nube_SaltoExtra"]

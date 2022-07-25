@@ -21,16 +21,9 @@ func _is_on_floor(delta):
 	movimiento.y += GRAVEDAD
 
 func get_axis() -> Vector2:
-	var axis : Vector2
-	var dir : Vector2
+	var axis = Vector2()
 	axis.x = player.global_position.x - shrek.global_position.x 
-	if axis.x <= 0:
-		dir.x = -1
-	elif axis.x >=0:
-		dir.x = 1
-	else:
-		dir.x = 0
-	return dir
+	return axis.normalized()
 
 func movimiento_ctrl():
 	if can_move:

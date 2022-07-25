@@ -23,12 +23,18 @@ func movimiento_ctrl():
 			movimiento = get_axis().normalized() * Vector2(300,300)
 		else:
 			movimiento = Vector2.ZERO
-		
+	
+	if get_axis().x - 400 <= 0:
+		$Sprite.flip_h = false
+	elif get_axis().x - 400 >= 0:
+		$Sprite.flip_h = true
+	
 	if vidas_calavera <= 0:
 		queue_free()
 
 func _on_HitBox_body_entered(body):
 	if body.is_in_group("Proyectil"):
+		$AnimationPlayer.play("Daño")
 		vidas_calavera -= 1
 
 
