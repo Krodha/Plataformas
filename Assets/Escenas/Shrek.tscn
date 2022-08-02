@@ -47,6 +47,7 @@ shape = SubResource( 1 )
 autostart = true
 
 [node name="AreaDetectar" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AreaDetectar"]
 shape = SubResource( 2 )

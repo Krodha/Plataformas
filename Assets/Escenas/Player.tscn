@@ -13,14 +13,14 @@ radius = 25.0243
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
-"frames": [ ExtResource( 1 ) ],
-"loop": true,
-"name": "ROJO",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 3 ) ],
 "loop": true,
 "name": "AZUL",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "ROJO",
 "speed": 5.0
 } ]
 
@@ -32,6 +32,9 @@ extents = Vector2( 287.629, 259.938 )
 ]]
 position = Vector2( -1.96013, 0.139772 )
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_group_": true
+}
 velocidad = 400
 bala = ExtResource( 4 )
 
