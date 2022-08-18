@@ -11,13 +11,16 @@ height = 21.2604
 radius = 2.10589
 height = 26.5981
 
-[node name="BalaEnemy" type="RigidBody2D"]
+[node name="BalaEnemy" type="RigidBody2D" groups=[
+"Enemy",
+]]
 collision_layer = 8
 collision_mask = 11
 script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
+hit_damage = 8
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
 position = Vector2( -0.421398, 0 )

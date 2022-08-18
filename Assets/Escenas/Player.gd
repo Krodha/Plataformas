@@ -91,7 +91,7 @@ func _is_on_floor(delta):
 
 func _on_Player_vs_enemy_collision(body):
 	if body.is_in_group("Enemy"):
-		vida_actual -= 10
+		vida_actual -= body.hit_damage
 
 
 func _on_Nube_SaltoExtra():

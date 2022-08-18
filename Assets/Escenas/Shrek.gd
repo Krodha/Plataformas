@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+export (int) var hit_damage
 export (int) var velocidad 
 export (bool) var can_move
 onready var player = get_tree().get_nodes_in_group("Player")[0]

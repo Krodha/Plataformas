@@ -33,6 +33,7 @@ tracks/0/keys = {
 collision_layer = 3
 collision_mask = 3
 script = ExtResource( 2 )
+hit_damage = 10
 velocidad = 300
 can_move = true
 

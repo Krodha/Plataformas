@@ -3,6 +3,7 @@ extends KinematicBody2D
 var vidas_calavera = 10
 var movimiento : Vector2
 var can_move : bool = false
+export (int) var hit_damage
 export (PackedScene) var balaEnemy
 onready var calavera = get_tree().get_nodes_in_group("Enemy")[3]
 onready var jugador = get_tree().get_nodes_in_group("Player")[0]
@@ -16,8 +17,7 @@ func _process(delta):
 func get_axis() -> Vector2:
 	var axis : Vector2
 	axis = jugador.global_position - calavera.global_position + Vector2(400,-500)
-	axis.normalized()
-	return axis
+	return axis.normalized()
 
 func movimiento_ctrl():
 	if can_move:
