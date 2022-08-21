@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Assets/Sprites/icon.png" type="Texture" id=1]
 [ext_resource path="res://Assets/Escenas/Player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Assets/Escenas/Shrek.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Assets/Escenas/Calavera.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Assets/Escenas/CalaveraLanzadora.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Assets/Escenas/Obstaculos.gd" type="Script" id=11]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 64, 64, 0, 64, 0, 0, 64, 0 )
@@ -76,7 +77,9 @@ tile_data = PoolIntArray( 65474, 0, 0, 65475, 0, 0, 65476, 0, 0, 65477, 0, 0, 65
 ]]
 tile_set = SubResource( 4 )
 format = 1
-tile_data = PoolIntArray( 196642, 0, 0, 327712, 0, 0, 458782, 0, 0, 589853, 0, 0, 589868, 0, 0, 655413, 0, 0, 655424, 0, 0, 720936, 0, 0, 720961, 0, 0, 852034, 0, 0, 917588, 0, 0, 917589, 0, 0, 983107, 0, 0, 1048652, 0, 0, 1114169, 0, 0, 1114183, 0, 0, 1179680, 0, 0, 1179681, 0, 0, 1179708, 0, 0, 1245269, 0, 0, 1310754, 0, 0, 1310799, 0, 0, 1507406, 0, 0, 1572936, 0, 0, 1638458, 0, 0, 1638484, 0, 0, 1769531, 0, 0, 1769533, 0, 0, 1835070, 0, 0, 1835077, 0, 0, 1900604, 0, 0, 1900612, 0, 0, 1900613, 0, 0, 1900614, 0, 0, 1900622, 0, 0, 1966126, 0, 0, 1966157, 0, 0, 1966161, 0, 0, 2097228, 0, 0, 2162733, 0, 0, 2162755, 0, 0, 2162756, 0, 0, 2228270, 0, 0, 2228278, 0, 0, 2228283, 0, 0, 2228291, 0, 0, 2228294, 0, 0, 2293813, 0, 0, 2293835, 0, 0, 2359348, 0, 0, 2359367, 0, 0, 2424880, 0, 0, 2424906, 0, 0, 2490419, 0, 0, 2555963, 0, 0, 2555988, 0, 0, 2621512, 0, 0, 2621518, 0, 0, 2621524, 0, 0, 2687044, 0, 0, 2687049, 0, 0, 2687060, 0, 0 )
+tile_data = PoolIntArray( -1310653, 0, 0, 196642, 0, 0, 327712, 0, 0, 458782, 0, 0, 589853, 0, 0, 589868, 0, 0, 655413, 0, 0, 655424, 0, 0, 720936, 0, 0, 720961, 0, 0, 852034, 0, 0, 917588, 0, 0, 917589, 0, 0, 983107, 0, 0, 1048652, 0, 0, 1114169, 0, 0, 1114183, 0, 0, 1179680, 0, 0, 1179681, 0, 0, 1179708, 0, 0, 1245269, 0, 0, 1310754, 0, 0, 1310799, 0, 0, 1507406, 0, 0, 1572936, 0, 0, 1638458, 0, 0, 1638484, 0, 0, 1769531, 0, 0, 1769533, 0, 0, 1835070, 0, 0, 1835077, 0, 0, 1900604, 0, 0, 1900612, 0, 0, 1900613, 0, 0, 1900614, 0, 0, 1900622, 0, 0, 1966126, 0, 0, 1966157, 0, 0, 1966161, 0, 0, 2097228, 0, 0, 2162733, 0, 0, 2162755, 0, 0, 2162756, 0, 0, 2228270, 0, 0, 2228278, 0, 0, 2228283, 0, 0, 2228291, 0, 0, 2228294, 0, 0, 2293813, 0, 0, 2293835, 0, 0, 2359348, 0, 0, 2359367, 0, 0, 2424880, 0, 0, 2424906, 0, 0, 2490419, 0, 0, 2555963, 0, 0, 2555988, 0, 0, 2621512, 0, 0, 2621518, 0, 0, 2621524, 0, 0, 2687044, 0, 0, 2687049, 0, 0, 2687060, 0, 0 )
+script = ExtResource( 11 )
+hit_damage = 5
 
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( -11.8528, 473.381 )
@@ -88,12 +91,14 @@ position = Vector2( 2060.24, 1902.3 )
 position = Vector2( -2391.42, 2562.83 )
 collision_layer = 1
 collision_mask = 1
+hit_damage = 15
 can_move = false
 
 [node name="Calavera" parent="." groups=[
 "Enemy",
 ] instance=ExtResource( 9 )]
 position = Vector2( -2274.65, 2105.3 )
+hit_damage = 10
 
 [node name="CalaveraLanzadora" parent="." instance=ExtResource( 10 )]
 position = Vector2( -1988.17, 2096.32 )
