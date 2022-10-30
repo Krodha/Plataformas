@@ -33,6 +33,7 @@ func movimiento_ctrl():
 		else:
 			movimiento.x = 0
 		if vidas_shrek <= 0:
+			GLOBAL.dinero += 1000
 			queue_free()
 
 

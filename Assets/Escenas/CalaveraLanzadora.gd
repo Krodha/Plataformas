@@ -32,6 +32,7 @@ func movimiento_ctrl():
 		$Sprite.flip_h = true
 	
 	if vidas_calavera <= 0:
+		GLOBAL.dinero += 250
 		queue_free()
 	
 	$Position2D.look_at(jugador.global_position)

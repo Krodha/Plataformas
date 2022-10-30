@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Assets/Sprites/Menú Base.png" type="Texture" id=1]
+[ext_resource path="res://Assets/Escenas/Menu.gd" type="Script" id=2]
+[ext_resource path="res://Assets/Escenas/MenuHabilidades.tscn" type="PackedScene" id=3]
+
+[node name="Menu" type="Control" groups=[
+"Menu",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="MiniMenu" type="NinePatchRect" parent="."]
+anchor_left = 0.01
+anchor_top = 0.01
+anchor_right = 0.264
+anchor_bottom = 0.707
+margin_right = 0.119995
+margin_bottom = -0.216003
+texture = ExtResource( 1 )
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MiniMenu"]
+anchor_left = 0.15
+anchor_top = 0.15
+anchor_right = 0.85
+anchor_bottom = 0.85
+custom_constants/separation = 40
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Habilidades" type="Button" parent="MiniMenu/VBoxContainer"]
+margin_right = 341.0
+margin_bottom = 74.0
+size_flags_vertical = 3
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 1, 1, 1, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "HABILIDADES"
+
+[node name="Skin" type="Button" parent="MiniMenu/VBoxContainer"]
+margin_top = 114.0
+margin_right = 341.0
+margin_bottom = 188.0
+size_flags_vertical = 3
+text = "SKIN"
+
+[node name="Restart" type="Button" parent="MiniMenu/VBoxContainer"]
+margin_top = 228.0
+margin_right = 341.0
+margin_bottom = 302.0
+size_flags_vertical = 3
+text = "REINICIAR"
+
+[node name="Quitar" type="Button" parent="MiniMenu/VBoxContainer"]
+margin_top = 342.0
+margin_right = 341.0
+margin_bottom = 416.0
+size_flags_vertical = 3
+text = "QUITAR MENÚ"
+
+[node name="Main_menu" type="Button" parent="MiniMenu/VBoxContainer"]
+margin_top = 456.0
+margin_right = 341.0
+margin_bottom = 530.0
+size_flags_vertical = 3
+text = "MENÚ PRINCIPAL"
+
+[node name="MenuHabilidades" parent="." instance=ExtResource( 3 )]
+visible = false
+
+[connection signal="pressed" from="MiniMenu/VBoxContainer/Habilidades" to="." method="_on_Habilidades_pressed"]
+[connection signal="pressed" from="MiniMenu/VBoxContainer/Skin" to="." method="_on_Skin_pressed"]
+[connection signal="pressed" from="MiniMenu/VBoxContainer/Restart" to="." method="_on_Restart_pressed"]
+[connection signal="pressed" from="MiniMenu/VBoxContainer/Quitar" to="." method="_on_Quitar_pressed"]
+[connection signal="pressed" from="MiniMenu/VBoxContainer/Main_menu" to="." method="_on_Main_menu_pressed"]

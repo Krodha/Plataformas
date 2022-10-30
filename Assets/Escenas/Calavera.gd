@@ -29,6 +29,7 @@ func movimiento_ctrl():
 		$Sprite.flip_h = true
 	
 	if vidas_calavera <= 0:
+		GLOBAL.dinero += 100
 		queue_free()
 
 func _on_HitBox_body_entered(body):

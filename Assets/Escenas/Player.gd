@@ -30,9 +30,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	if Input.is_action_pressed("exit"):
-		get_tree().quit()
-
+	
 	movimiento.y += GRAVEDAD * 100 * delta
 	if $RayCast2D.is_colliding():
 		saltos = 0
@@ -43,7 +41,7 @@ func _physics_process(delta):
 	
 	if vida_actual <= 0:
 		perder()
-	
+
 	barravida.value = vida_actual * barravida.max_value / vida_max
 	
 	$BalaPosition.look_at(get_global_mouse_position())
@@ -78,7 +76,7 @@ func _movement():
 		elif get_axis().x == -1:
 			$HurtBox/Area2D.position.x = -60
 		if get_axis().x != 0:
-			movimiento.x = get_axis().x * velocidad
+			movimiento.x = get_axis().x * (velocidad + GLOBAL.velocidad)
 		else:
 			movimiento.x = lerp(movimiento.x, 0, 0.2)
 

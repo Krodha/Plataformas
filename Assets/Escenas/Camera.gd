@@ -7,7 +7,7 @@ var player_vivo : bool = true
 func _ready():
 	player_vivo = true
 
-func _process(delta):
+func _process(_delta):
 	if player_vivo:
 		global_position = player.global_position
 	$YOU_DIED.global_position = get_camera_position()

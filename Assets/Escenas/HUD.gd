@@ -1,5 +1,8 @@
 extends CanvasLayer
 
+func _process(_delta):
+	$Dinero_player.text = "Dinero: " + str(GLOBAL.dinero)
+
 func _on_Player_perder():
 	$ResetTimer.start()
 
