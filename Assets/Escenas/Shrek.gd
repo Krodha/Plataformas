@@ -23,7 +23,7 @@ func _is_on_floor(delta):
 
 func get_axis() -> Vector2:
 	var axis = Vector2()
-	axis.x = player.global_position.x - shrek.global_position.x 
+	axis.x = player.global_position.x - position.x
 	return axis.normalized()
 
 func movimiento_ctrl():

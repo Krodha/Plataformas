@@ -78,7 +78,9 @@ margin_bottom = 530.0
 size_flags_vertical = 3
 text = "MENÚ PRINCIPAL"
 
-[node name="MenuHabilidades" parent="." instance=ExtResource( 3 )]
+[node name="MenuHabilidades" parent="." groups=[
+"Menu",
+] instance=ExtResource( 3 )]
 visible = false
 
 [connection signal="pressed" from="MiniMenu/VBoxContainer/Habilidades" to="." method="_on_Habilidades_pressed"]

@@ -8,8 +8,11 @@ onready var vida_actual : int = 100
 onready var saltos : int
 onready var can_move : bool = true
 onready var can_jump : bool = true
+onready var can_shoot : bool = true
 onready var arma : int = 2
 onready var bala_velocidad = 2000
+onready var minimenu = get_tree().get_nodes_in_group("Menu")[0]
+onready var menubuilds = get_tree().get_nodes_in_group("Menu")[1]
 onready var barravida = get_tree().get_nodes_in_group("HUD")[0].get_node("PlayerVida")
 var movimiento : Vector2
 export (int) var velocidad 
@@ -41,7 +44,12 @@ func _physics_process(delta):
 	
 	if vida_actual <= 0:
 		perder()
-
+	
+	if minimenu.visible or menubuilds.visible:
+		can_shoot = false
+	else:
+		can_shoot = true
+	
 	barravida.value = vida_actual * barravida.max_value / vida_max
 	
 	$BalaPosition.look_at(get_global_mouse_position())
@@ -63,9 +71,9 @@ func _controles():
 	if Input.is_action_just_pressed("Espacio") and can_jump:
 		movimiento.y -= JUMP_HEIGH
 		saltos += 1
-	if Input.is_action_just_pressed("Click_izq") and arma == 1:
+	if Input.is_action_just_pressed("Click_izq") and arma == 1 and can_shoot:
 		atacar_melee()
-	if Input.is_action_just_pressed("Click_izq") and arma == 2:
+	if Input.is_action_just_pressed("Click_izq") and arma == 2 and can_shoot:
 		disparar()
 
 

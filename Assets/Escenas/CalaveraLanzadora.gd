@@ -16,7 +16,7 @@ func _process(delta):
 
 func get_axis() -> Vector2:
 	var axis : Vector2
-	axis = jugador.global_position - calavera.global_position + Vector2(400,-500)
+	axis = jugador.global_position - position + Vector2(400,-500)
 	return axis.normalized()
 
 func movimiento_ctrl():
